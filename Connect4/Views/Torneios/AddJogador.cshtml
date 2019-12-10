@@ -1,0 +1,43 @@
+﻿@model Torneio
+@{
+    ViewData["Title"] = "AddJogador";
+  var  i = 0;
+}
+
+<h2>Entrada</h2>
+<h3>Tem Certeza que deseja participar deste torneio?</h3>
+<div>
+    <h4>Torneio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeTorneio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeTorneio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantidadeJogadores)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QuantidadeJogadores)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Inicio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Inicio)
+        </dd>
+        <dd>
+            Total de Jogadores Registrados:@Model.Jogadores.Count
+        </dd>
+    </dl>
+
+    <div> 
+      
+    </div>
+    <form asp-action="AddJogador">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Participar" class="btn btn-default" /> |
+        <a asp-action="Index">Voltar a lista de Torneios</a>
+    </form>

@@ -1,0 +1,24 @@
+﻿@model JogadorPessoa
+@{
+    ViewData["Title"] = "Continuar";
+    var i = 0;
+}
+    <div>
+        <ul class="list-group">
+            @foreach (var jogo in Model.Jogos)
+            {
+                i = i + 1;
+
+
+                <li class="list-group-item">
+                   Jogo:@i 
+                    <a asp-area=""
+                       asp-controller="Jogo"
+                       asp-action="Tabuleiro"
+                       asp-route-id="@jogo.Id">Entrar</a>
+                </li>
+
+
+            }
+        </ul>
+    </div>

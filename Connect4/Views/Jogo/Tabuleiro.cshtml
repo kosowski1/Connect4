@@ -1,0 +1,42 @@
+﻿@model Jogo
+@{
+    ViewData["Title"] = "Tabuleiro";
+}
+
+<h2>Tabuleiro</h2>
+<link rel="stylesheet" href="~/css/tabuleiro.css" />
+<h1>Connect-4</h1>
+
+<div class="container">
+    <div class="row">
+        <div id="jog1" class="col-lg-5">
+            @Model.Jogador1.Nome
+        </div>
+        <div class="col-lg-2">
+            @Model.Tabuleiro.turnoAtual
+        </div>
+        <div id="jog2" class="col-lg-5">
+            @Model.Jogador2.Nome
+        </div>
+    </div>
+</div>
+<div id="turno" class="sumir">
+</div>
+<div id="Tabuleiro" class="tabuleiro">
+</div>
+@section Scripts{
+    <script src="~/js/tabuleiro.js"></script>
+    <script>
+
+        //Obtem o ID do Jogo que está no objeto de modelo enviado pela controller.
+        jogoId = "@Model.Id";
+        //Requer o jogo do servidor.
+        obterJogoServidor(jogoId);
+        jog1 = "@Model.Jogador1";
+        jog2 = "@Model.Jogador2";
+        setInterval(function () {
+            obterJogoServidor(jogoId)
+        }, 10000);
+    </script>
+}
+
